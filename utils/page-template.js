@@ -1,21 +1,8 @@
+const fs = require('fs');
+const team = require('../index');
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Team</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1>My Team</h1>
-        </header>
-        <main>
-           
-       team =>{
-    team
+const generateManger = teamArr =>{
+    
         .filter(({ role }) => role === 'Manager')
         .map(({ name, id, email, officeNumber }) => {
             return `
@@ -30,9 +17,10 @@
     </div>
     `;
         })
-    .join('')}
-       teamArr =>{
-    teamArr
+    .join('')
+    
+const generateEngineer = teamArr =>{
+    ${teamArr
         .filter(({ role }) => role === 'Engineer')
         .map(({ name, id, email, github }) => {
             return `
@@ -48,7 +36,9 @@
     `;
         })
     .join('')}
-       teamArr =>{
+
+    
+const generateIntern = teamArr =>{
     teamArr
         .filter(({ role }) => role === 'Intern')
         .map(({ name, id, email, school}) => {
@@ -66,9 +56,38 @@
         })
     .join('')}
 
+
+            
+
+
+
+function generatePage(team) {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Team</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>My Team</h1>
+        </header>
+        <main>
+           
+       ${generateManger}
+       ${generateEngineer}
+       ${generateIntern}
+
         </main>
         <footer class="container text-center py-3">
-            <h3 class="text-dark">&copy; 2021 by Anthony Martinez</h3>
+            <h3 class="text-dark">&copy; ${new Date().getFullYear()} by Anthony Martinez</h3>
         </footer>
     </body>
-    </html>
+    </html>`
+};
+
+module.exports = generatePage;
