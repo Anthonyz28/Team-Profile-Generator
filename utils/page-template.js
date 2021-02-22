@@ -1,64 +1,60 @@
 const fs = require('fs');
 const team = require('../index');
 
-const generateManger = teamArr =>{
-    
+const generateManger = team =>{
+    team
         .filter(({ role }) => role === 'Manager')
         .map(({ name, id, email, officeNumber }) => {
             return `
-    <div class="manager">
-        <h2>${name}</h2>
-        <h3>Manager</h3>
-        <div>
-            <p>ID: ${id}</p>
-            <p>Email: <a href="mailto:${email}">${email}</a></p>
-            <p>Office Number: ${officeNumber}</p>
-        </div>
-    </div>
-    `;
-        })
-    .join('')
+                <div class="manager">
+                    <h2>${name}</h2>
+                    <h3>Manager</h3>
+                    <div>
+                        <p>ID: ${id}</p>
+                        <p>Email: <a href="mailto:${email}">${email}</a></p>
+                        <p>Office Number: ${officeNumber}</p>
+                    </div>
+                </div>
+                `;
+                    })
+                .join('')}
     
-const generateEngineer = teamArr =>{
-    ${teamArr
+const generateEngineer = team =>{
+    team
         .filter(({ role }) => role === 'Engineer')
         .map(({ name, id, email, github }) => {
             return `
-    <div class="engineer">
-        <h2>${name}</h2>
-        <h3>Engineer</h3>
-        <div>
-            <p>ID: ${id}</p>
-            <p>Email: <a href="mailto:${email}">${email}</a></p>
-            <p>GitHub: ${github}</p>
-        </div>
-    </div>
-    `;
-        })
-    .join('')}
+                <div class="engineer">
+                    <h2>${name}</h2>
+                    <h3>Engineer</h3>
+                    <div>
+                        <p>ID: ${id}</p>
+                        <p>Email: <a href="mailto:${email}">${email}</a></p>
+                        <p>GitHub: ${github}</p>
+                    </div>
+                </div>
+                `;
+                    })
+                .join('')}
 
     
-const generateIntern = teamArr =>{
-    teamArr
+const generateIntern = team =>{
+    team
         .filter(({ role }) => role === 'Intern')
         .map(({ name, id, email, school}) => {
             return `
-    <div class="intern">
-        <h2>${name}</h2>
-        <h3>Intern</h3>
-        <div>
-            <p>ID: ${id}</p>
-            <p>Email: <a href="mailto:${email}">${email}</a></p>
-            <p>School: ${school}</p>
-        </div>
-    </div>
-    `;
-        })
-    .join('')}
-
-
-            
-
+                <div class="intern">
+                    <h2>${name}</h2>
+                    <h3>Intern</h3>
+                    <div>
+                        <p>ID: ${id}</p>
+                        <p>Email: <a href="mailto:${email}">${email}</a></p>
+                        <p>School: ${school}</p>
+                    </div>
+                </div>
+                `;
+                    })
+                .join('')}
 
 
 function generatePage(team) {

@@ -31,8 +31,8 @@
     `;
         })
     .join('')}
-       teamArr =>{
-    teamArr
+       team =>{
+    team
         .filter(({ role }) => role === 'Engineer')
         .map(({ name, id, email, github }) => {
             return `
@@ -48,8 +48,8 @@
     `;
         })
     .join('')}
-       teamArr =>{
-    teamArr
+       team =>{
+    team
         .filter(({ role }) => role === 'Intern')
         .map(({ name, id, email, school}) => {
             return `
